@@ -13,6 +13,17 @@ typedef struct {
     int denominator;
 } Fraction;
 
+Fraction mixedToFraction(MixedNumber mn);
+MixedNumber fractionToMixed(Fraction frac);
+int compareMixedNumbers(MixedNumber a, MixedNumber b);
+MixedNumber addMixedNumbers(MixedNumber a, MixedNumber b);
+MixedNumber subtractMixedNumbers(MixedNumber a, MixedNumber b);
+MixedNumber multiplyMixedNumbers(MixedNumber a, MixedNumber b);
+MixedNumber divideMixedNumbers(MixedNumber a, MixedNumber b);
+void interchangeSortMixedNumbers(MixedNumber* arr, int n, int ascending);
+void selectionSortMixedNumbers(MixedNumber* arr, int n, int ascending);
+void quickSortMixedNumbers(MixedNumber* arr, int left, int right, int ascending);
+
 // Hàm tạo mảng chứa giá trị hỗn số ngẫu nhiên
 void createRandomMixedNumberArray(MixedNumber* arr, int n) {
     for (int i = 0; i < n; ++i) {
