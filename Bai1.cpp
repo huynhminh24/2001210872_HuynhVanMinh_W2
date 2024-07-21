@@ -99,64 +99,71 @@ int main() {
     srand(time(0)); // Khởi tạo seed cho rand()
 
     int n = 15;
-    int arr[100];
+    int randomArray[100];
+    int evenArray[100];
 
-    // Tạo mảng ngẫu nhiên
-    createRandomArray(arr, n, 0, 100);
+    // Tạo và xuất mảng ngẫu nhiên
+    createRandomArray(randomArray, n, 0, 100);
     printf("1. Mang ngau nhien: ");
     for (int i = 0; i < n; ++i) {
-        printf("%d ", arr[i]);
+        printf("%d ", randomArray[i]);
     }
     printf("\n");
 
-    // Tạo mảng chứa toàn số chẵn
-    createEvenArray(arr, n);
+    // Tạo và xuất mảng chứa toàn số chẵn
+    createEvenArray(evenArray, n);
     printf("2. Mang so chan: ");
     for (int i = 0; i < n; ++i) {
-        printf("%d ", arr[i]);
+        printf("%d ", evenArray[i]);
     }
     printf("\n");
 
+    // Nhập số cần tìm từ bàn phím
+    int x;
+    printf("3. Nhap so can tim trong mang ngau nhien: ");
+    scanf("%d", &x);
+
+    // Sử dụng mảng ngẫu nhiên để thực hiện các thao tác
     // Tìm kiếm tuyến tính
-    int x = 10; // Số cần tìm
-    int pos = linearSearch(arr, n, x);
+    int pos = linearSearch(randomArray, n, x);
     if (pos != -1) {
-        printf("3. Tim thay %d o vi tri %d\n", x, pos);
+        printf("Tim thay %d o vi tri %d (Linear Search)\n", x, pos);
     }
     else {
-        printf("3. Khong tim thay %d\n", x);
+        printf("Khong tim thay %d (Linear Search)\n", x);
     }
 
     // Sắp xếp tăng dần theo Interchange Sort
-    interchangeSort(arr, n, 1);
+    interchangeSort(randomArray, n, 1);
     printf("4. Mang sau khi sap xep tang dan (Interchange Sort): ");
     for (int i = 0; i < n; ++i) {
-        printf("%d ", arr[i]);
+        printf("%d ", randomArray[i]);
     }
     printf("\n");
 
-    // Tìm kiếm nhị phân
-    pos = binarySearch(arr, n, x);
+    // Tìm kiếm nhị phân (cần sắp xếp mảng trước)
+    printf("5. Tim kiem so can tim trong mang da sap xep:\n");
+    pos = binarySearch(randomArray, n, x);
     if (pos != -1) {
-        printf("5. Tim thay %d o vi tri %d (Binary Search)\n", x, pos);
+        printf("Tim thay %d o vi tri %d (Binary Search)\n", x, pos);
     }
     else {
-        printf("5. Khong tim thay %d (Binary Search)\n", x);
+        printf("Khong tim thay %d (Binary Search)\n", x);
     }
 
     // Sắp xếp tăng dần theo Selection Sort
-    selectionSort(arr, n);
+    selectionSort(randomArray, n);
     printf("6. Mang sau khi sap xep tang dan (Selection Sort): ");
     for (int i = 0; i < n; ++i) {
-        printf("%d ", arr[i]);
+        printf("%d ", randomArray[i]);
     }
     printf("\n");
 
     // Sắp xếp tăng dần theo Quick Sort
-    quickSort(arr, 0, n - 1);
+    quickSort(randomArray, 0, n - 1);
     printf("7. Mang sau khi sap xep tang dan (Quick Sort): ");
     for (int i = 0; i < n; ++i) {
-        printf("%d ", arr[i]);
+        printf("%d ", randomArray[i]);
     }
     printf("\n");
 
